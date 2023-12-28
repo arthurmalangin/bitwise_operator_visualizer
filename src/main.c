@@ -5,11 +5,12 @@ int leftshift(char *value, char *value2);
 int rightshift(char *value, char *value2);
 int set_bit_0(char *value, char *value2);
 int set_bit_1(char *value, char *value2);
+int	toggle_bit(char *value, char *value2);
 
 void	print_help(void)
 {
 	printf("=========================================================\n");
-	printf("List of operator: \"<<\" \">>\" \"| <<\" \"& ~ <<\"\n");
+	printf("List of operator: \"<<\" \">>\" \"| <<\" \"& ~ <<\" \"^ <<\"\n");
 	printf("Example:\n");
 	printf("		- ./a.out \"10\" \"<<\" \"2\"\n");
 	printf("		- ./a.out \"2\" \"| <<\" \"1\"\n");
@@ -47,6 +48,8 @@ int	getOperator(char *src)
 	i = 0;
 	if (src[i])
 	{
+		if (compare_str(src, "^ <<")) // Toggle bit
+			return (5);
 		if (compare_str(src, "| <<")) // Met le bit voulu a 0
 			return (3);
 		else if (compare_str(src, "& ~ <<")) // Met le bit voulu a 1
@@ -71,6 +74,9 @@ void operation(int operator, char *value, char *value2)
 		set_bit_0(value, value2);
 	if (operator == 4)
 		set_bit_1(value, value2);
+	if (operator == 5)
+		toggle_bit(value, value2);
+
 }
 
 int main(int argc, char **argv)

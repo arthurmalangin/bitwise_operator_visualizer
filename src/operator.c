@@ -80,8 +80,18 @@ int set_bit_1(char *value, char *value2)
     
     display_character(value[0]);
     bit = value[0] & ~(1 << ft_atoi(&value2[0]));
-    write(1, "-", 1);
+    write(1, " ", 1);
     display_character(bit);
     write(1, "\n", 1);
 }
 
+int	toggle_bit(char *value, char *value2)
+{
+    int bit;
+    
+    display_character(value[0]);
+    bit = value[0] ^ (1 << ft_atoi(&value2[0]));
+    write(1, " ", 1);
+    display_character(bit);
+    write(1, "\n", 1);
+}
