@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int leftshift(char *value, char *value2);
-int rightshift(char *value, char *value2);
-int set_bit_0(char *value, char *value2);
-int set_bit_1(char *value, char *value2);
-int	toggle_bit(char *value, char *value2);
+void leftshift(char *value, char *value2);
+void rightshift(char *value, char *value2);
+void set_bit_0(char *value, char *value2);
+void set_bit_1(char *value, char *value2);
+void toggle_bit(char *value, char *value2);
 
 void	print_help(void)
 {

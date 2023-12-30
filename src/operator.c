@@ -58,7 +58,7 @@ void	display_character(char c)
 	}
 }
 
-int leftshift(char *value, char *value2)
+void	leftshift(char *value, char *value2)
 {
     int bit;
     
@@ -75,7 +75,7 @@ int leftshift(char *value, char *value2)
 	write(1, DEFAULT_COLOR, ft_strlen(DEFAULT_COLOR));
 }
 
-int rightshift(char *value, char *value2)
+void	rightshift(char *value, char *value2)
 {
     int bit;
     
@@ -91,7 +91,7 @@ int rightshift(char *value, char *value2)
 	write(1, DEFAULT_COLOR, ft_strlen(DEFAULT_COLOR));
 }
 
-int set_bit_0(char *value, char *value2)
+void	set_bit_0(char *value, char *value2)
 {
     int bit;
     
@@ -107,7 +107,7 @@ int set_bit_0(char *value, char *value2)
 	write(1, DEFAULT_COLOR, ft_strlen(DEFAULT_COLOR));
 }
 
-int set_bit_1(char *value, char *value2)
+void	set_bit_1(char *value, char *value2)
 {
     int bit;
     
@@ -123,7 +123,7 @@ int set_bit_1(char *value, char *value2)
 	write(1, DEFAULT_COLOR, ft_strlen(DEFAULT_COLOR));
 }
 
-int	toggle_bit(char *value, char *value2)
+void	toggle_bit(char *value, char *value2)
 {
     int bit;
     
