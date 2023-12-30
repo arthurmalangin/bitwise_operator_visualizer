@@ -9,13 +9,13 @@ int	toggle_bit(char *value, char *value2);
 
 void	print_help(void)
 {
-	printf("=========================================================\n");
-	printf("List of operator: \"<<\" \">>\" \"| <<\" \"& ~ <<\" \"^ <<\"\n");
+	printf("\033[0;31m=========================================================\n");
+	printf("List of operator: \"set\" \"clear\" \"leftshift\" \"rightshift\" \"toggle\" \"swapshift\"\n");
 	printf("Example:\n");
-	printf("		- ./a.out \"10\" \"<<\" \"2\"\n");
-	printf("		- ./a.out \"2\" \"| <<\" \"1\"\n");
-	printf("		- ./a.out \"5\" \"& ~ <<\" \"5\"\n");
-	printf("=========================================================\n");
+	printf("		- ./a.out \"10\" \"set\" \"2\"\n");
+	printf("		- ./a.out \"2\" \"rightshift\" \"1\"\n");
+	printf("		- ./a.out \"5\" \"toggle\" \"5\"\n");
+	printf("=========================================================\n\033[0m");
 }
 
 int compare_str(char *str, char *comparator)
@@ -43,22 +43,18 @@ int compare_str(char *str, char *comparator)
 
 int	getOperator(char *src)
 {
-	int i;
-
-	i = 0;
-	if (src[i])
-	{
-		if (compare_str(src, "^ <<")) // Toggle bit
-			return (5);
-		if (compare_str(src, "| <<")) // Met le bit voulu a 0
-			return (3);
-		else if (compare_str(src, "& ~ <<")) // Met le bit voulu a 1
-			return (4);
-		else if (compare_str(src, "<<")) // Decale a gauche
-			return (1);
-		else if (compare_str(src, ">>")) // Decale a droite
-			return (2);		
-	}
+	if (compare_str(src, "toggle"))
+		return (5);
+	if (compare_str(src, "clear"))
+		return (3);
+	else if (compare_str(src, "set"))
+		return (4);
+	else if (compare_str(src, "leftshift"))
+		return (1);
+	else if (compare_str(src, "rightshift"))
+		return (2);	
+	else if (compare_str(src, "swapshift"))
+		return (6);	
 	return (0);
 }
 
